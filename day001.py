@@ -41,6 +41,34 @@ else:
 # 单行定义多个变量
 a, b = 50, 60
 
-#元组第一和拆分
+#元组定义和拆分
 data = ("shiyanlou", "China", "Python")
 name, country, language = data
+
+#================================================
+days = int(input("Enter days: "))
+months = days // 30
+days = days % 30
+print("Months = {} Days = {}".format(months, days))
+
+#==================================================
+days = int(input("Enter days: "))
+print("Months = {} Days = {}".format(*divmod(days, 30)))
+# divmod(num1, num2) 返回一个元组，这个元组包含两个值，第一个是 num1 和 num2 相整除得到的值，
+# 第二个是 num1 和 num2 求余得到的值，然后我们用 * 运算符拆封这个元组，得到这两个值。
+
+
+#逻辑运算符 and 和 or 也称作短路运算符：它们的参数从左向右解析，一旦结果可以确定就停止。例如，如果 A 和 C 为真而 B 为假，A and B and C 不会解析 C 。作用于一个普通的非逻辑值时，短路运算符的返回值通常是能够最先确定结果的那个操作数。
+
+#关系运算可以通过逻辑运算符 and 和 or 组合，比较的结果可以用 not 来取反意。逻辑运算符的优先级又低于关系运算符，在它们之中，not 具有最高的优先级，or 优先级最低，所以 A and not B or C 等于 (A and (notB)) or C。当然，括号也可以用于比较表达式。
+#
+5 and 4  # >>> 4
+0 and 4  # >>> 0
+False or 3 or 0  # >>> 3
+2 > 1 and not 3>5 or 4  # >>> True
+
+# 我们可以手动的执行类型转换。
+# 类型转换函数 	转换路径
+# int(string) 	字符串 -> 整数值
+# str(integer) 	整数值 -> 字符串
+# str(float) 	浮点值 -> 字符串

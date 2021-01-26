@@ -1,4 +1,10 @@
-
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+# filename: day001_list.py
+#   author: Jilin Xie
+# datetime: 2021-1-22 18:45:00
+#  effects: Python学习-列表
+		
 #列表建立
 list_1 = [996, 10.123, 65535, 'lucky', 'i love you']
 print(list_1)

@@ -23,3 +23,9 @@ print(a - b)	# a有b无
 print(a | b)	# a有或b有
 print(a & b)	# ab都有
 print(a ^ b)	# 不同是存在于ab
+
+#从集合中添加或弹出元素
+#
+a.pop('a')
+
+a.add('c')

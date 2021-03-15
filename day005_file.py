@@ -7,29 +7,34 @@
 import os
 import random
 import time
+# import atexit
+# def save_info(): 
+# 	save = open('save.txt', 'w')
+# 	global done_num
+# 	save.write(str(done_num))
+# 	save.close()
+# atexit.register(save_info)
 
 os.system('cls')
-fs = open('A.txt') 
-# print('=' * 70)
-# print('=' * 23, "业余无线电资格考试练习", '=' * 23 )
-#fs.readline()
-# print('=' * 20, line_txt.strip(), '=' * 19)
-# print('=' * 26, '退出请按Ctrl + C', '=' * 26)
-# print('=' * 70)
+
+done_num = 0
+
 save = open('save.txt','r')
-nnnn = int(save.readline().strip())
-for x in range(nnnn):
+done_num = int(save.readline().strip())
+save.close()
+
+fs = open('A.txt') 
+for x in range(done_num):
 	for y in range(8):
 		fs.readline()
-save.close()
+
 s = ['A:', 'B:', 'C:', 'D:']
-done_num = 0
 answer = []
-for problem in range(nnnn,362):
+for problem in range(done_num,362):
 
 	print('=' * 80)
 	print('=' * 28, "业余无线电资格考试练习", '=' * 28 )
-	print('=' * 27, '你已完成{:3d}题,总共:361题'.format(problem), '=' * 27)
+	print('=' * 27, '你已完成{:3d}  题,总共:361题'.format(problem), '=' * 25)
 	print('=' * 31, '退出请按Ctrl + C', '=' * 31)
 	print('=' * 80)
 
@@ -48,15 +53,22 @@ for problem in range(nnnn,362):
 	for x in answer:
 		print(x)
 	an = input("请回答：").upper()
-	while an[:1] not in right_answer:
-			an = input("回答错误，请重新回答：").upper()
-	print('回答正确！开始下一题......')
-	save = open('save.txt', 'w')
-	save.write(str(problem +1))
-	save.close()
-	time.sleep(1)
+	#while an not in right_answer:
+	#		an = input("回答错误，请重新回答：").upper()
+	#print('回答正确！开始下一题......')
+	if an in right_answer:
+		print('回答正确！开始下一题')
+		time.sleep(1)
+	else:
+		print('回答错误！正确答案：{}  ,你的答案是：{}'.format(right_answer[:1] , an))
+		print('准备下一题......')
+		time.sleep(3)
+	done_num = problem + 1
 	answer.clear()
 	os.system('cls')
+	save = open('save.txt', 'w')
+	save.write(str(done_num))
+	save.close()
 
 print("你居然做完了全部考题，真是佩服你！")
 fs.close()
